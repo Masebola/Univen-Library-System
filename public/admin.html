@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - University of Venda Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>UNIVEN Library Admin</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Library</a></li>
+                <li><a href="admin.html" class="active">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="card">
+            <h1>Library Administration Dashboard</h1>
+            <p>Monitor library operations, track transactions, and manage system statistics.</p>
+            
+            <div id="adminInfo" class="admin-info-display"></div>
+        </div>
+
+        <!-- Statistics Overview -->
+        <div id="statsContainer">
+            <div class="loading">Loading statistics...</div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+            <h2>Quick Actions</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="refreshDashboard()" class="btn-primary">Refresh Dashboard</button>
+                <button onclick="exportTransactions()" class="btn-secondary">Export Transactions</button>
+                <button onclick="showOverdueBooks()" class="btn-secondary">View Overdue Books</button>
+            </div>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="card">
+            <h2>Recent Library Transactions</h2>
+            <div class="table-controls">
+                <label>
+                    Show:
+                    <select id="transactionFilter" onchange="filterTransactions()">
+                        <option value="all">All Transactions</option>
+                        <option value="borrowed">Currently Borrowed</option>
+                        <option value="returned">Returned Books</option>
+                        <option value="overdue">Overdue Books</option>
+                    </select>
+                </label>
+                <label>
+                    Search:
+                    <input type="text" id="searchInput" placeholder="Search by book title, author, or student name" onkeyup="searchTransactions()">
+                </label>
+            </div>
+            
+            <div id="transactionsContainer">
+                <div class="loading">Loading transactions...</div>
+            </div>
+        </div>
+
+        <div id="messageContainer" class="message-container"></div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
