@@ -41,6 +41,7 @@ cd university-library-management
 ### Step 2: Install Dependencies
 \`\`\`bash
 npm install
+npm install sqlite3 bcryptjs cors
 \`\`\`
 
 This will install all required dependencies including:
@@ -53,6 +54,7 @@ This will install all required dependencies including:
 \`\`\`bash
 npm list
 \`\`\`
+
 
 ## Database Setup
 
